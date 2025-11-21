@@ -43,12 +43,14 @@ class Television:
         if self.status == True:
             if self.volume <Television.MAX_VOLUME:
                 self.volume += 1
+            self.muted = False
         else:
             self.status = self.status
     def volume_down(self):
         if self.status == True:
             if self.volume>Television.MIN_VOLUME:
                 self.volume-=1
+            self.muted=False
         else:
             self.status = self.status
 
