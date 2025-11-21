@@ -27,20 +27,33 @@ class Television:
     def channel_up(self):
         if self.status==True:
             self.channel+=1
-            if self.channel>=Television.MAX_CHANNEL:
+            if self.channel>Television.MAX_CHANNEL:
                 self.channel=Television.MIN_CHANNEL
         else:
             self.status=self.status
 
     def channel_down(self):
-        pass
+        if self.status==True:
+            self.channel-=1
+            if self.channel<Television.MIN_CHANNEL:
+                self.channel=Television.MAX_CHANNEL
+        else:
+            self.status=self.status
     def volume_up(self):
-        pass
+        if self.status == True:
+            if self.volume <Television.MAX_VOLUME:
+                self.volume += 1
+        else:
+            self.status = self.status
     def volume_down(self):
-        pass
+        if self.status == True:
+            if self.volume>Television.MIN_VOLUME:
+                self.volume-=1
+        else:
+            self.status = self.status
 
     def __str__(self):
         if self.muted:
-            return f'Volume={Television.MIN_VOLUME}'
+            return f'Power={self.status}, Channel={self.channel}, Volume={Television.MIN_VOLUME}'
         else:
-            return f'XXX'
+            return f'Power={self.status}, Channel={self.channel}, Volume={self.volume}'
