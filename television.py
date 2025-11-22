@@ -10,7 +10,7 @@ class Television:
         self.channel:int=Television.MIN_CHANNEL
     def power(self)->None:
         """
-        Method that sets turns on/off tv
+        Method that turns on/off tv
         sets status to opposite of current boolean value
         All methods in TV Class Check if status is True
         in order to operate, otherwise methods will simply
